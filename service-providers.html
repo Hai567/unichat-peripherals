@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Service Providers</title>
+		<meta
+			name="description"
+			content="The companies that process personal information on our behalf."
+		/>
+		<!--
+  HOW TO USE THIS FILE
+  1. Fill in the settings in the script block just below (window.PROVIDERS_CONFIG).
+  2. In the "providers" list, add one entry per company you really use. Copy an entry to add more companies in the
+     same category, and delete categories you do not use. Do not publish names you do not use, and do not leave
+     out ones you do.
+  3. Empty values stay highlighted in yellow and are listed in a banner at the top. Set showMissingBanner to false
+     (or fill everything in) to remove the banner.
+  4. Set "providersUrl" in privacy-policy.html to the address where you publish this page.
+  5. Keep this list up to date. The privacy policy promises that it is current.
+-->
+		<script>
+			/* ==========================================================================
+   SETTINGS: fill these in. Leave a value as "" if it does not apply yet.
+   ========================================================================== */
+			window.PROVIDERS_CONFIG = {
+				appName: "Unichat", // e.g. "StudyChat"
+				companyName: "FDA Cada Lab", // legal name of the company or developer
+				privacyEmail: "orgtechvn@gmail.com", // where people can ask about providers
+				policyUrl:
+					"https://github.com/Hai567/unichat-peripherals/privacy-policy.html", // link to your privacy policy page
+				lastUpdated: "5 October 2026", // e.g. "5 October 2026"
+				noticeDays: "30", // days of notice before you add or replace a provider
+
+				showMissingBanner: true,
+
+				/* One entry per company. Fields:
+       category : group heading shown on the page
+       name     : company name
+       purpose  : what they do for you, in plain words
+       data     : the kinds of personal information they handle
+       location : where they process or store data (country or region)
+       url      : link to the provider's privacy policy (optional, must start with https://)
+  */
+				providers: [
+					{
+						category: "Authentication",
+						name: "Microsoft",
+						purpose:
+							"Authenticate users using NEU Microsoft accounts",
+						data: "Account details",
+						location: "United States of America",
+						url: "https://www.microsoft.com/",
+					},
+
+					{
+						category: "Message delivery and push notifications",
+						name: "Firebase",
+						purpose:
+							"Delivers notifications to phones and browsers.",
+						data: "Device identifiers, notification content",
+						location: "United States of America",
+						url: "https://firebase.google.com/",
+					},
+
+					//{
+					//	category: "Email and SMS",
+					//	name: "",
+					//	purpose:
+					//		"Sends sign-in codes, security alerts, and service emails or texts.",
+					//	data: "Email address, phone number, message content",
+					//	location: "",
+					//	url: "",
+					//},
+
+					//{
+					//	category: "Analytics",
+					//	name: "",
+					//	purpose:
+					//		"Shows us, in aggregate, which features are used so we can improve them.",
+					//	data: "Device data, usage data (no message content)",
+					//	location: "",
+					//	url: "",
+					//},
+
+					//{
+					//	category: "Crash reporting",
+					//	name: "",
+					//	purpose: "Records errors so we can find and fix bugs.",
+					//	data: "Device data, app version, error logs",
+					//	location: "",
+					//	url: "",
+					//},
+
+					//{
+					//	category: "Customer support",
+					//	name: "",
+					//	purpose:
+					//		"Runs our help desk and tracks support requests.",
+					//	data: "Name, email address, contents of support messages",
+					//	location: "",
+					//	url: "",
+					//},
+
+					//{
+					//	category: "Content moderation",
+					//	name: "",
+					//	purpose:
+					//		"Helps detect spam, abuse, and harmful content so we can keep students safe.",
+					//	data: "Reported or flagged content, account identifiers",
+					//	location: "",
+					//	url: "",
+					//},
+				],
+			};
+		</script>
+		<style>
+			:root {
+				--bg: #fbfcfd;
+				--surface: #ffffff;
+				--text: #1d2733;
+				--muted: #5a6776;
+				--line: #d9e0e7;
+				--accent: #1b5e7b;
+				--accent-soft: #e6f1f6;
+				--ph-bg: #fff3c4;
+				--ph-text: #5c4400;
+				--note-bg: #eef4f8;
+			}
+			@media (prefers-color-scheme: dark) {
+				:root:not([data-theme="light"]) {
+					--bg: #12181e;
+					--surface: #182028;
+					--text: #e3e9ef;
+					--muted: #9fadbb;
+					--line: #2b3640;
+					--accent: #7cc3df;
+					--accent-soft: #1a2c36;
+					--ph-bg: #4a3b0b;
+					--ph-text: #ffe69a;
+					--note-bg: #1a2630;
+				}
+			}
+			:root[data-theme="dark"] {
+				--bg: #12181e;
+				--surface: #182028;
+				--text: #e3e9ef;
+				--muted: #9fadbb;
+				--line: #2b3640;
+				--accent: #7cc3df;
+				--accent-soft: #1a2c36;
+				--ph-bg: #4a3b0b;
+				--ph-text: #ffe69a;
+				--note-bg: #1a2630;
+			}
+
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+			}
+			body {
+				margin: 0;
+				background: var(--bg);
+				color: var(--text);
+				font-family:
+					Georgia, "Iowan Old Style", "Times New Roman", serif;
+				font-size: 1.0625rem;
+				line-height: 1.7;
+			}
+			h1,
+			h2,
+			table,
+			.meta,
+			.banner,
+			.count {
+				font-family:
+					-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+					"Helvetica Neue", Arial, sans-serif;
+			}
+			.banner {
+				background: var(--ph-bg);
+				color: var(--ph-text);
+				padding: 0.8rem 1.25rem;
+				font-size: 0.9rem;
+				line-height: 1.5;
+				border-bottom: 1px solid var(--line);
+			}
+			.banner strong {
+				display: block;
+				margin-bottom: 0.15rem;
+			}
+
+			main {
+				max-width: 62rem;
+				margin: 0 auto;
+				padding: 2.5rem 1.25rem 4rem;
+			}
+			h1 {
+				font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+				line-height: 1.15;
+				margin: 0 0 0.6rem;
+				letter-spacing: -0.015em;
+			}
+			.meta {
+				color: var(--muted);
+				font-size: 0.95rem;
+				margin: 0 0 1.75rem;
+			}
+			.intro {
+				max-width: 46rem;
+			}
+			p {
+				margin: 0 0 1rem;
+			}
+			a {
+				color: var(--accent);
+				text-underline-offset: 3px;
+			}
+			a:focus-visible {
+				outline: 3px solid var(--accent);
+				outline-offset: 2px;
+				border-radius: 2px;
+			}
+
+			h2 {
+				font-size: 1.3rem;
+				line-height: 1.25;
+				margin: 2.5rem 0 0.75rem;
+				padding-top: 1.25rem;
+				border-top: 1px solid var(--line);
+				letter-spacing: -0.01em;
+			}
+			.count {
+				color: var(--muted);
+				font-size: 0.9rem;
+				margin: 0 0 0.5rem;
+			}
+
+			.table-wrap {
+				overflow-x: auto;
+				border: 1px solid var(--line);
+				border-radius: 6px;
+				background: var(--surface);
+				margin: 0 0 1.5rem;
+			}
+			table {
+				border-collapse: collapse;
+				width: 100%;
+				font-size: 0.93rem;
+				line-height: 1.5;
+				min-width: 40rem;
+			}
+			caption {
+				text-align: left;
+				padding: 0.8rem 0.9rem;
+				font-weight: 600;
+				font-size: 1rem;
+				border-bottom: 1px solid var(--line);
+			}
+			th,
+			td {
+				text-align: left;
+				padding: 0.7rem 0.9rem;
+				vertical-align: top;
+				border-bottom: 1px solid var(--line);
+			}
+			th {
+				background: var(--accent-soft);
+				font-weight: 600;
+				white-space: nowrap;
+			}
+			tr:last-child td {
+				border-bottom: 0;
+			}
+			td.name {
+				font-weight: 600;
+			}
+
+			.ph {
+				background: var(--ph-bg);
+				color: var(--ph-text);
+				padding: 0 0.25em;
+				border-radius: 3px;
+				font-weight: normal;
+			}
+
+			.note {
+				background: var(--note-bg);
+				border-left: 4px solid var(--accent);
+				padding: 1rem 1.25rem;
+				border-radius: 0 6px 6px 0;
+				margin: 2rem 0 0;
+				font-size: 1rem;
+			}
+			.note h2 {
+				font-size: 1.05rem;
+				margin: 0 0 0.5rem;
+				padding: 0;
+				border: 0;
+			}
+			.note p:last-child {
+				margin-bottom: 0;
+			}
+
+			footer {
+				margin-top: 3.5rem;
+				padding-top: 1.5rem;
+				border-top: 1px solid var(--line);
+				color: var(--muted);
+				font-size: 0.9rem;
+			}
+
+			@media print {
+				.banner {
+					display: none;
+				}
+				body {
+					font-size: 11pt;
+					background: #fff;
+					color: #000;
+				}
+				.ph {
+					background: none;
+					color: inherit;
+				}
+				table,
+				.note {
+					break-inside: avoid;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="banner" id="todoBanner" role="status" hidden></div>
+
+		<main id="content">
+			<h1>Service Providers</h1>
+			<p class="meta">
+				<span class="ph" data-var="appName">[App Name]</span> &middot;
+				Last updated
+				<span class="ph" data-var="lastUpdated">[Date]</span>
+			</p>
+
+			<div class="intro">
+				<p>
+					To run
+					<span class="ph" data-var="appName">[App Name]</span>, we
+					use other companies to handle some of the work, such as
+					hosting, sending notifications, or helping us keep students
+					safe. These companies are called service providers (or
+					processors). This page lists them and what they do.
+				</p>
+				<p>
+					Each provider may use personal information only to provide
+					its service to us. They are bound by written contracts that
+					require them to keep it confidential and secure. We do not
+					allow them to sell it or use it for their own advertising.
+				</p>
+				<p>
+					This list supports our
+					<a href="privacy-policy.html" id="policyLink"
+						>Privacy Policy</a
+					>, which explains what we collect and why.
+				</p>
+			</div>
+
+			<div id="providers" aria-live="polite"></div>
+			<noscript
+				><p>
+					This page needs JavaScript to show the list of providers.
+					Please email us and we will send it to you.
+				</p></noscript
+			>
+
+			<div class="note">
+				<h2>Changes to this list</h2>
+				<p>
+					We update this page when we add or replace a provider. For
+					providers that handle student data, we tell schools and
+					users at least
+					<span class="ph" data-var="noticeDays">[30]</span> days
+					before the change takes effect, where we are able to.
+				</p>
+				<p>
+					Schools can ask us for a copy of this list, along with the
+					contract terms that apply to each provider, by emailing
+					<a
+						href="mailto:privacy@yourapp.com"
+						data-mailto="privacyEmail"
+						><span class="ph" data-var="privacyEmail"
+							>[privacy@yourapp.com]</span
+						></a
+					>.
+				</p>
+			</div>
+
+			<footer>
+				<p>
+					&copy; <span id="yr"></span>
+					<span class="ph" data-var="companyName"
+						>[Company Legal Name]</span
+					>. All rights reserved.
+				</p>
+			</footer>
+		</main>
+
+		<script>
+			(function () {
+				var C = window.PROVIDERS_CONFIG || {};
+				var LABELS = {
+					appName: "App name",
+					companyName: "Company name",
+					privacyEmail: "Privacy email",
+					lastUpdated: "Last updated date",
+					noticeDays: "Change notice days",
+				};
+				var missing = [];
+				function val(v) {
+					return (v == null ? "" : String(v)).replace(
+						/^\s+|\s+$/g,
+						"",
+					);
+				}
+				function note(k) {
+					if (missing.indexOf(k) < 0) missing.push(k);
+				}
+
+				// Fill simple settings.
+				Array.prototype.forEach.call(
+					document.querySelectorAll("[data-var]"),
+					function (el) {
+						var k = el.getAttribute("data-var"),
+							v = val(C[k]);
+						if (v) {
+							el.textContent = v;
+							el.classList.remove("ph");
+						} else {
+							note(k);
+						}
+					},
+				);
+				Array.prototype.forEach.call(
+					document.querySelectorAll("[data-mailto]"),
+					function (a) {
+						var v = val(C[a.getAttribute("data-mailto")]);
+						if (v) a.setAttribute("href", "mailto:" + v);
+					},
+				);
+				var pl = val(C.policyUrl);
+				if (pl)
+					document
+						.getElementById("policyLink")
+						.setAttribute("href", pl);
+				document.getElementById("yr").textContent =
+					new Date().getFullYear();
+
+				var name = val(C.appName);
+				document.title = name
+					? "Service Providers \u2013 " + name
+					: "Service Providers";
+
+				// Build the provider tables, grouped by category in the order first listed.
+				var list = Array.isArray(C.providers) ? C.providers : [];
+				var order = [],
+					groups = {};
+				list.forEach(function (p) {
+					var cat = val(p.category) || "Other";
+					if (!groups[cat]) {
+						groups[cat] = [];
+						order.push(cat);
+					}
+					groups[cat].push(p);
+				});
+
+				function cell(tr, text, cls, fallback) {
+					var td = document.createElement("td");
+					if (cls) td.className = cls;
+					var t = val(text);
+					if (t) {
+						td.textContent = t;
+					} else {
+						var s = document.createElement("span");
+						s.className = "ph";
+						s.textContent = fallback;
+						td.appendChild(s);
+					}
+					tr.appendChild(td);
+					return !!t;
+				}
+
+				var unnamed = 0,
+					noLocation = 0,
+					container = document.getElementById("providers");
+				var total = document.createElement("p");
+				total.className = "count";
+				total.textContent =
+					list.length +
+					(list.length === 1 ? " provider" : " providers") +
+					" in " +
+					order.length +
+					(order.length === 1 ? " category" : " categories");
+				container.appendChild(total);
+
+				order.forEach(function (cat) {
+					var wrap = document.createElement("div");
+					wrap.className = "table-wrap";
+					var table = document.createElement("table");
+					var cap = document.createElement("caption");
+					cap.textContent = cat;
+					table.appendChild(cap);
+					var thead = document.createElement("thead"),
+						hr = document.createElement("tr");
+					[
+						"Provider",
+						"What they do",
+						"Information they handle",
+						"Where",
+					].forEach(function (h) {
+						var th = document.createElement("th");
+						th.scope = "col";
+						th.textContent = h;
+						hr.appendChild(th);
+					});
+					thead.appendChild(hr);
+					table.appendChild(thead);
+					var tbody = document.createElement("tbody");
+					groups[cat].forEach(function (p) {
+						var tr = document.createElement("tr");
+						// Name cell, with an optional link to the provider's privacy policy.
+						var td = document.createElement("td");
+						td.className = "name";
+						var n = val(p.name),
+							u = val(p.url);
+						if (!n) {
+							unnamed++;
+							var s = document.createElement("span");
+							s.className = "ph";
+							s.textContent = "[Provider name]";
+							td.appendChild(s);
+						} else if (/^https:\/\//i.test(u)) {
+							var a = document.createElement("a");
+							a.href = u;
+							a.rel = "noopener noreferrer";
+							a.textContent = n;
+							a.title = "Privacy policy of " + n;
+							td.appendChild(a);
+						} else {
+							td.textContent = n;
+						}
+						tr.appendChild(td);
+						cell(tr, p.purpose, "", "[What they do]");
+						cell(tr, p.data, "", "[Information they handle]");
+						if (!cell(tr, p.location, "", "[Country or region]"))
+							noLocation++;
+						tbody.appendChild(tr);
+					});
+					table.appendChild(tbody);
+					wrap.appendChild(table);
+					container.appendChild(wrap);
+				});
+
+				if (!list.length) {
+					var empty = document.createElement("p");
+					empty.className = "ph";
+					empty.textContent =
+						"[Add your service providers to window.PROVIDERS_CONFIG at the top of this file.]";
+					container.appendChild(empty);
+					note("providers");
+				}
+
+				// Banner listing what is still to fill in.
+				var banner = document.getElementById("todoBanner");
+				var items = missing.map(function (k) {
+					return k === "providers" ? "Provider list" : LABELS[k] || k;
+				});
+				if (unnamed)
+					items.push(
+						unnamed +
+							(unnamed === 1
+								? " provider name"
+								: " provider names"),
+					);
+				if (noLocation)
+					items.push(
+						noLocation +
+							(noLocation === 1
+								? " provider location"
+								: " provider locations"),
+					);
+				if (banner && C.showMissingBanner !== false && items.length) {
+					banner.innerHTML = "<strong>Still to fill in</strong>";
+					banner.appendChild(
+						document.createTextNode(
+							items.join(", ") +
+								". Edit window.PROVIDERS_CONFIG at the top of this file. This notice disappears when everything is filled in.",
+						),
+					);
+					banner.hidden = false;
+				}
+			})();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,1844 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Privacy Policy – [App Name]</title>
+		<meta
+			name="description"
+			content="How [App Name] collects, uses, shares, and protects personal information of students and other users."
+		/>
+		<!--
+  HOW TO USE THIS FILE
+  1. Fill in the settings in the script block just below (window.POLICY_CONFIG). Every place on the page that uses
+     a setting updates automatically. Anything still empty stays highlighted in yellow and is listed in a banner at
+     the top of the page. Set showMissingBanner to false (or finish all the settings) to remove the banner.
+  2. Choose "encryption" and "ads" in the settings. The matching wording is kept and the other option is removed.
+  3. Read the page once. Review the pre-filled defaults (ages, retention periods) and every claim against what your app
+     really does. The yellow notes in Sections 8 and 9 need a manual decision.
+  4. Have a qualified lawyer review it before you publish. This is a template, not legal advice.
+-->
+		<script>
+			/* ==========================================================================
+   SETTINGS: fill these in. Leave a value as "" if it does not apply yet.
+   ========================================================================== */
+			window.POLICY_CONFIG = {
+				/* ---- Who you are ---- */
+				appName: "Unichat", // e.g. "StudyChat"
+				companyName: "FDA Cada Lab", // legal name of the company or developer
+				companyAddress: "Room 1601, 207 Giai Phong, Hanoi, Viet Nam", // registered postal address
+				country: "Vietnam", // country where you are registered
+				privacyEmail: "orgtechvn@gmail.com", // for privacy questions and rights requests
+				securityEmail: "orgtechvn@gmail.com", // for security issues and breach reports
+				dpoDetails: "none", // EU/UK representative or Data Protection Officer, if you need one, as a full sentence
+
+				/* ---- Dates ---- */
+				effectiveDate: "5", // e.g. "5 October 2026"
+				lastUpdated: "October", // e.g. "5 October 2026"
+				year: "2026", // for the copyright line
+
+				/* ---- Age rules ---- */
+				minAge: "13", // minimum age to use the app
+				localConsentAge: "7", // age of digital consent where you operate (for example in Vietnam)
+
+				/* ---- Retention (review these defaults) ---- */
+				accountDeleteDays: "30", // days to delete account data after a deletion request
+				messageDeleteDays: "30", // days to remove deleted messages and files from live systems
+				backupDays: "90", // days until backups are overwritten
+				reportsMonths: "12", // months to keep reported content and safety records
+				logsMonths: "12", // months to keep logs and security data
+				inactiveMonths: "24", // months of inactivity before an account is deleted
+				noticeDays: "30", // days of notice before policy changes apply
+
+				/* ---- In-app locations and links ---- */
+				deleteAccountPath: "Settings > Account > Delete account", // e.g. "Settings > Account > Delete account"
+				privacySettingsPath: "Settings > Privacy", // e.g. "Settings > Privacy"
+				providersUrl:
+					"https://github.com/Hai567/unichat-peripherals/service-providers.html", // page that lists your service providers
+				transferCountries: "Viet Nam", // countries where data is stored or processed, e.g. "Singapore and the United States"
+
+				/* ---- Choices ---- */
+				encryption: "standard", // "e2ee" (end-to-end encrypted) or "standard" (encrypted in transit and at rest only)
+				ads: "none", // "none" (no advertising) or "limited" (ads, never targeted at under-18s)
+
+				showMissingBanner: true, // show the list of unfilled settings at the top of the page
+			};
+		</script>
+		<style>
+			:root {
+				--bg: #fbfcfd;
+				--surface: #ffffff;
+				--text: #1d2733;
+				--muted: #5a6776;
+				--line: #d9e0e7;
+				--accent: #1b5e7b;
+				--accent-soft: #e6f1f6;
+				--ph-bg: #fff3c4;
+				--ph-text: #5c4400;
+				--note-bg: #eef4f8;
+			}
+			@media (prefers-color-scheme: dark) {
+				:root:not([data-theme="light"]) {
+					--bg: #12181e;
+					--surface: #182028;
+					--text: #e3e9ef;
+					--muted: #9fadbb;
+					--line: #2b3640;
+					--accent: #7cc3df;
+					--accent-soft: #1a2c36;
+					--ph-bg: #4a3b0b;
+					--ph-text: #ffe69a;
+					--note-bg: #1a2630;
+				}
+			}
+			:root[data-theme="dark"] {
+				--bg: #12181e;
+				--surface: #182028;
+				--text: #e3e9ef;
+				--muted: #9fadbb;
+				--line: #2b3640;
+				--accent: #7cc3df;
+				--accent-soft: #1a2c36;
+				--ph-bg: #4a3b0b;
+				--ph-text: #ffe69a;
+				--note-bg: #1a2630;
+			}
+
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+			}
+			html {
+				scroll-behavior: smooth;
+				scroll-padding-top: 1.5rem;
+			}
+			body {
+				margin: 0;
+				background: var(--bg);
+				color: var(--text);
+				font-family:
+					Georgia, "Iowan Old Style", "Times New Roman", serif;
+				font-size: 1.0625rem;
+				line-height: 1.7;
+			}
+			h1,
+			h2,
+			h3,
+			nav,
+			table,
+			.meta,
+			.skip,
+			.banner {
+				font-family:
+					-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+					"Helvetica Neue", Arial, sans-serif;
+			}
+
+			.skip {
+				position: absolute;
+				left: -999px;
+				top: 0;
+				background: var(--accent);
+				color: #fff;
+				padding: 0.6rem 1rem;
+				z-index: 10;
+			}
+			.skip:focus {
+				left: 0;
+			}
+
+			.page {
+				max-width: 71rem;
+				margin: 0 auto;
+				padding: 2.5rem 1.25rem 4rem;
+				display: grid;
+				grid-template-columns: 16rem minmax(0, 1fr);
+				gap: 3rem;
+			}
+
+			/* Contents */
+			nav.toc {
+				position: sticky;
+				top: 1.5rem;
+				align-self: start;
+				max-height: calc(100vh - 3rem);
+				overflow-y: auto;
+				font-size: 0.9rem;
+				line-height: 1.4;
+			}
+			nav.toc h2 {
+				font-size: 0.95rem;
+				margin: 0 0 0.75rem;
+				color: var(--muted);
+				font-weight: 600;
+			}
+			nav.toc ol {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				border-left: 2px solid var(--line);
+			}
+			nav.toc a {
+				display: block;
+				padding: 0.4rem 0.8rem;
+				color: var(--text);
+				text-decoration: none;
+				margin-left: -2px;
+				border-left: 2px solid transparent;
+			}
+			nav.toc a:hover {
+				color: var(--accent);
+			}
+			nav.toc a[aria-current="true"] {
+				border-left-color: var(--accent);
+				color: var(--accent);
+				font-weight: 600;
+			}
+			nav.toc details {
+				display: block;
+			}
+			nav.toc summary {
+				display: none;
+			}
+
+			/* Content */
+			main {
+				min-width: 0;
+				max-width: 46rem;
+			}
+			header.top {
+				margin-bottom: 2rem;
+			}
+			h1 {
+				font-size: clamp(2rem, 4.5vw, 2.9rem);
+				line-height: 1.15;
+				margin: 0 0 0.6rem;
+				letter-spacing: -0.015em;
+			}
+			.meta {
+				color: var(--muted);
+				font-size: 0.95rem;
+				margin: 0;
+			}
+			.summary {
+				background: var(--note-bg);
+				border-left: 4px solid var(--accent);
+				padding: 1rem 1.25rem;
+				margin: 1.75rem 0 0;
+				border-radius: 0 6px 6px 0;
+				font-size: 1rem;
+			}
+			.summary h2 {
+				font-size: 1.05rem;
+				margin: 0 0 0.5rem;
+			}
+			.summary ul {
+				margin: 0;
+				padding-left: 1.2rem;
+			}
+			.summary li {
+				margin: 0.25rem 0;
+			}
+
+			section {
+				margin-top: 3rem;
+			}
+			h2 {
+				font-size: 1.55rem;
+				line-height: 1.25;
+				margin: 0 0 1rem;
+				padding-top: 1.5rem;
+				border-top: 1px solid var(--line);
+				letter-spacing: -0.01em;
+			}
+			h3 {
+				font-size: 1.1rem;
+				margin: 1.75rem 0 0.5rem;
+			}
+			p {
+				margin: 0 0 1rem;
+			}
+			ul,
+			ol {
+				padding-left: 1.4rem;
+				margin: 0 0 1rem;
+			}
+			li {
+				margin: 0.35rem 0;
+			}
+			a {
+				color: var(--accent);
+				text-underline-offset: 3px;
+			}
+			a:focus-visible,
+			summary:focus-visible,
+			button:focus-visible {
+				outline: 3px solid var(--accent);
+				outline-offset: 2px;
+				border-radius: 2px;
+			}
+
+			.table-wrap {
+				overflow-x: auto;
+				margin: 1rem 0 1.5rem;
+				border: 1px solid var(--line);
+				border-radius: 6px;
+				background: var(--surface);
+			}
+			table {
+				border-collapse: collapse;
+				width: 100%;
+				font-size: 0.93rem;
+				line-height: 1.5;
+				min-width: 34rem;
+			}
+			th,
+			td {
+				text-align: left;
+				padding: 0.7rem 0.9rem;
+				vertical-align: top;
+				border-bottom: 1px solid var(--line);
+			}
+			th {
+				background: var(--accent-soft);
+				font-weight: 600;
+				white-space: nowrap;
+			}
+			tr:last-child td {
+				border-bottom: 0;
+			}
+			td:first-child {
+				font-weight: 600;
+				width: 28%;
+			}
+
+			.ph {
+				background: var(--ph-bg);
+				color: var(--ph-text);
+				padding: 0 0.25em;
+				border-radius: 3px;
+				font-family: inherit;
+			}
+			.choice {
+				border: 1px dashed var(--line);
+				border-radius: 6px;
+				padding: 0.25rem 1rem;
+				margin-bottom: 1rem;
+				background: var(--surface);
+			}
+			.choice p {
+				margin: 0.75rem 0;
+			}
+
+			footer {
+				margin-top: 4rem;
+				padding-top: 1.5rem;
+				border-top: 1px solid var(--line);
+				color: var(--muted);
+				font-size: 0.9rem;
+			}
+
+			/* Mobile */
+			@media (max-width: 62rem) {
+				.page {
+					grid-template-columns: 1fr;
+					gap: 1.5rem;
+					padding-top: 1.5rem;
+				}
+				nav.toc {
+					position: static;
+					max-height: none;
+				}
+				nav.toc details {
+					border: 1px solid var(--line);
+					border-radius: 6px;
+					background: var(--surface);
+				}
+				nav.toc summary {
+					display: block;
+					padding: 0.8rem 1rem;
+					cursor: pointer;
+					font-weight: 600;
+					font-family: inherit;
+				}
+				nav.toc h2 {
+					display: none;
+				}
+				nav.toc ol {
+					border-left: 0;
+					padding: 0 0.5rem 0.5rem;
+				}
+			}
+
+			@media print {
+				nav.toc,
+				.skip {
+					display: none;
+				}
+				.page {
+					display: block;
+					padding: 0;
+				}
+				body {
+					font-size: 11pt;
+					background: #fff;
+					color: #000;
+				}
+				.ph {
+					background: none;
+					color: inherit;
+				}
+				h2 {
+					break-after: avoid;
+				}
+				table,
+				.summary {
+					break-inside: avoid;
+				}
+			}
+			.banner {
+				background: var(--ph-bg);
+				color: var(--ph-text);
+				padding: 0.8rem 1.25rem;
+				font-size: 0.9rem;
+				line-height: 1.5;
+				border-bottom: 1px solid var(--line);
+			}
+			.banner strong {
+				display: block;
+				margin-bottom: 0.15rem;
+			}
+			@media print {
+				.banner {
+					display: none;
+				}
+			}
+			@media (prefers-reduced-motion: reduce) {
+				html {
+					scroll-behavior: auto;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<a class="skip" href="#content">Skip to the policy</a>
+
+		<div class="banner" id="todoBanner" role="status" hidden></div>
+
+		<div class="page">
+			<nav class="toc" aria-label="Contents">
+				<details id="tocDetails" open>
+					<summary>Contents</summary>
+					<h2>Contents</h2>
+					<ol>
+						<li><a href="#s1">1. Introduction and scope</a></li>
+						<li><a href="#s2">2. Information we collect</a></li>
+						<li><a href="#s3">3. How and why we use it</a></li>
+						<li>
+							<a href="#s4">4. Children, students, and schools</a>
+						</li>
+						<li>
+							<a href="#s5"
+								>5. Messages, moderation, and safety</a
+							>
+						</li>
+						<li><a href="#s6">6. Who we share it with</a></li>
+						<li>
+							<a href="#s7">7. Security and what can go wrong</a>
+						</li>
+						<li><a href="#s8">8. Retention and deletion</a></li>
+						<li><a href="#s9">9. Your rights and choices</a></li>
+						<li>
+							<a href="#s10"
+								>10. Transfers, cookies, changes, contact</a
+							>
+						</li>
+					</ol>
+				</details>
+			</nav>
+
+			<main id="content">
+				<header class="top">
+					<h1>Privacy Policy</h1>
+					<p class="meta">
+						<span class="ph" data-var="appName">[App Name]</span>
+						&middot; Effective
+						<span class="ph" data-var="effectiveDate">[Date]</span>
+						&middot; Last updated
+						<span class="ph" data-var="lastUpdated">[Date]</span>
+					</p>
+
+					<aside class="summary" aria-labelledby="sumh">
+						<h2 id="sumh">The short version</h2>
+						<ul>
+							<li>
+								We collect what we need to run a chat service
+								for students: account details, your messages,
+								and basic device data.
+							</li>
+							<li>
+								We never sell your personal information and we
+								show no targeted ads to anyone under 18.
+							</li>
+							<li>
+								Under-18 accounts get stricter privacy settings
+								by default.
+							</li>
+							<li>
+								You, or your parent or guardian, can ask to see,
+								fix, or delete your data at any time.
+							</li>
+							<li>
+								If someone may be in danger, we may share
+								information with parents, schools, or the
+								authorities.
+							</li>
+						</ul>
+						<p style="margin: 0.75rem 0 0; font-size: 0.9rem">
+							This summary is for convenience. The full policy
+							below is what applies.
+						</p>
+					</aside>
+				</header>
+
+				<!-- 1 -->
+				<section id="s1" aria-labelledby="h1s">
+					<h2 id="h1s">1. Introduction and scope</h2>
+					<p>
+						This Privacy Policy explains what personal information
+						<span class="ph" data-var="appName">[App Name]</span>
+						(&ldquo;the App&rdquo;, &ldquo;we&rdquo;,
+						&ldquo;us&rdquo;) collects from students and other
+						users, why we collect it, who we share it with, and the
+						choices you have. We wrote it to be read by students, so
+						we have kept the language plain.
+					</p>
+					<p>
+						<strong>Who we are.</strong>
+						<span class="ph" data-var="companyName"
+							>[Company / Developer Legal Name]</span
+						>,
+						<span class="ph" data-var="companyAddress"
+							>[Registered Address]</span
+						>, <span class="ph" data-var="country">[Country]</span>.
+						For privacy questions, contact us at
+						<a
+							href="mailto:privacy@yourapp.com"
+							data-mailto="privacyEmail"
+							><span class="ph" data-var="privacyEmail"
+								>[privacy@yourapp.com]</span
+							></a
+						>.
+					</p>
+					<p>
+						<strong>What this policy covers.</strong> The
+						App&rsquo;s mobile apps, website, and any related
+						services (together, &ldquo;the Service&rdquo;). It does
+						not cover third-party websites or services that the
+						Service links to.
+					</p>
+					<p><strong>Key terms.</strong></p>
+					<ul>
+						<li>
+							<strong>Personal information:</strong> any
+							information that identifies you or can reasonably be
+							linked to you.
+						</li>
+						<li>
+							<strong>Student:</strong> a person who uses the
+							Service to communicate with classmates, teachers, or
+							other students.
+						</li>
+						<li>
+							<strong>School / Institution:</strong> a school,
+							university, or education provider that has arranged
+							for its students to use the Service.
+						</li>
+						<li>
+							<strong>Parent / Guardian:</strong> a person with
+							legal responsibility for a child under the age of
+							digital consent in their country.
+						</li>
+					</ul>
+					<p>
+						<strong>Your agreement.</strong> By creating an account
+						or using the Service, you confirm that you have read
+						this policy. If you do not agree, please do not use the
+						Service. Users under the minimum age in
+						<a href="#s4">Section 4</a> must have a parent,
+						guardian, or school give permission first.
+					</p>
+				</section>
+
+				<!-- 2 -->
+				<section id="s2" aria-labelledby="h2s">
+					<h2 id="h2s">2. Information we collect</h2>
+					<p>
+						We collect only what we need to run a safe chat service
+						for students.
+					</p>
+
+					<h3>Information you give us</h3>
+					<div class="table-wrap">
+						<table>
+							<thead>
+								<tr>
+									<th>Category</th>
+									<th>Examples</th>
+									<th>Why we need it</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Account details</td>
+									<td>
+										Name or username, email or phone number,
+										password (stored hashed), date of birth
+										or age range
+									</td>
+									<td>
+										Create your account, verify age, sign
+										you in
+									</td>
+								</tr>
+								<tr>
+									<td>Profile</td>
+									<td>
+										Profile photo, display name, school or
+										class (optional), bio
+									</td>
+									<td>
+										Let classmates find and recognise you
+									</td>
+								</tr>
+								<tr>
+									<td>Messages and content</td>
+									<td>
+										Text messages, photos, files, voice
+										notes, reactions, group names, shared
+										links
+									</td>
+									<td>
+										Deliver your chats to the people you
+										choose
+									</td>
+								</tr>
+								<tr>
+									<td>School information</td>
+									<td>
+										School name, school email, class or
+										group codes, role (student, teacher)
+									</td>
+									<td>
+										Connect you to your school&rsquo;s
+										groups
+									</td>
+								</tr>
+								<tr>
+									<td>Support and reports</td>
+									<td>
+										Messages to our support team, abuse
+										reports, screenshots you send us
+									</td>
+									<td>Fix problems and keep users safe</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<h3>Information collected automatically</h3>
+					<ul>
+						<li>
+							<strong>Device and technical data:</strong> device
+							model, operating system, app version, language, time
+							zone, IP address, crash logs.
+						</li>
+						<li>
+							<strong>Usage data:</strong> features used, login
+							times, message counts (not message content),
+							notification interactions.
+						</li>
+						<li>
+							<strong>Approximate location:</strong> derived from
+							your IP address (country or city level). We do not
+							collect precise GPS location unless you turn on a
+							feature that needs it and give permission.
+						</li>
+						<li>
+							<strong>Cookies and similar tools</strong> (web
+							version only): see <a href="#s10">Section 10</a>.
+						</li>
+					</ul>
+
+					<h3>Information from others</h3>
+					<ul>
+						<li>
+							Your school or a teacher, if they create or manage
+							your account.
+						</li>
+						<li>
+							Other users who mention you, add you to a group, or
+							report you.
+						</li>
+						<li>
+							Sign-in providers (for example Google or Apple), if
+							you choose to use them. We receive only the basic
+							profile information you approve.
+						</li>
+					</ul>
+
+					<p>
+						<strong>Permissions we may ask for.</strong> Camera,
+						microphone, photos or files, contacts, and
+						notifications. Each is optional and used only for the
+						matching feature (for example, the camera for sending
+						photos). You can withdraw any permission in your device
+						settings.
+					</p>
+					<p>
+						<strong>What we do not collect.</strong> We do not
+						knowingly collect government ID numbers, financial
+						account details from students, health records, precise
+						background location tracking, or biometric templates. We
+						do not read your private messages for advertising.
+						Please do not share sensitive information such as
+						passwords or payment details in chats.
+					</p>
+					<p>
+						<strong>If information is incomplete.</strong> If you
+						choose not to provide required information (such as age
+						or email), you may not be able to create an account or
+						use some features.
+					</p>
+				</section>
+
+				<!-- 3 -->
+				<section id="s3" aria-labelledby="h3s">
+					<h2 id="h3s">3. How and why we use your information</h2>
+					<p>
+						We use personal information only for the purposes below.
+						Where privacy law requires a legal basis (for example
+						under the GDPR), we name it.
+					</p>
+					<div class="table-wrap">
+						<table>
+							<thead>
+								<tr>
+									<th>Purpose</th>
+									<th>Legal basis</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										Create and manage your account, deliver
+										messages and notifications
+									</td>
+									<td>
+										Performance of a contract (our Terms of
+										Service)
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Verify age and obtain parental or school
+										consent
+									</td>
+									<td>Legal obligation; consent</td>
+								</tr>
+								<tr>
+									<td>
+										Keep the Service safe: detect spam,
+										bullying, grooming, threats, and illegal
+										content; enforce our rules
+									</td>
+									<td>
+										Legitimate interests; legal obligation;
+										protecting vital interests
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Provide customer support and respond to
+										reports
+									</td>
+									<td>Contract; legitimate interests</td>
+								</tr>
+								<tr>
+									<td>
+										Fix bugs, secure the Service, prevent
+										fraud and account takeover
+									</td>
+									<td>Legitimate interests</td>
+								</tr>
+								<tr>
+									<td>
+										Improve features using aggregated or
+										de-identified usage data
+									</td>
+									<td>Legitimate interests</td>
+								</tr>
+								<tr>
+									<td>
+										Send service messages (security alerts,
+										policy updates)
+									</td>
+									<td>Contract; legal obligation</td>
+								</tr>
+								<tr>
+									<td>
+										Send optional news or tips to users old
+										enough to consent
+									</td>
+									<td>
+										Consent (you can opt out at any time)
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Comply with law, court orders, and valid
+										government requests
+									</td>
+									<td>Legal obligation</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p><strong>What we will not do.</strong></p>
+					<ul>
+						<li>
+							We do not sell students&rsquo; personal information.
+						</li>
+						<li>
+							We do not show targeted advertising to users under
+							18, and we do not build advertising profiles of
+							students.
+						</li>
+						<li>
+							We do not use the content of private messages to
+							train advertising or marketing systems.
+						</li>
+						<li>
+							We do not use your information for purposes that are
+							materially different from those above without
+							telling you and, where required, asking for consent
+							again.
+						</li>
+					</ul>
+					<p>
+						<strong>Automated tools.</strong> We use automated
+						systems (for example, filters for spam, links to known
+						harmful content, and abusive language) to help moderate
+						the Service. These tools may flag content for human
+						review. They do not by themselves make decisions with
+						legal or similarly significant effects on you. If you
+						believe an automated action was a mistake, contact us
+						and a person will review it.
+					</p>
+				</section>
+
+				<!-- 4 -->
+				<section id="s4" aria-labelledby="h4s">
+					<h2 id="h4s">4. Children, students, and schools</h2>
+					<p>
+						<strong>Minimum age.</strong> The Service is intended
+						for users aged
+						<span class="ph" data-var="minAge">[13]</span> and over.
+						Where local law sets a higher age of digital consent
+						(for example 16 in some EU countries, or
+						<span class="ph" data-var="localConsentAge">[age]</span>
+						in Vietnam), users below that age need verifiable
+						permission from a parent or guardian, or from their
+						school where the law allows.
+					</p>
+					<p>
+						<strong
+							>Children under
+							<span class="ph" data-var="minAge">[13]</span
+							>.</strong
+						>
+						We do not knowingly collect personal information from
+						children under
+						<span class="ph" data-var="minAge">[13]</span> without
+						verifiable parental consent. If we learn that we have
+						collected such information without consent, we will
+						delete the account and data promptly. Parents who
+						believe their child has used the Service without
+						permission can contact us at
+						<span class="ph" data-var="privacyEmail"
+							>[privacy@yourapp.com]</span
+						>.
+					</p>
+					<p>
+						<strong>Parental rights.</strong> A parent or guardian
+						may, at any time:
+					</p>
+					<ul>
+						<li>
+							ask what personal information we hold about their
+							child;
+						</li>
+						<li>ask us to correct or delete that information;</li>
+						<li>
+							withdraw consent and ask us to stop collecting or
+							using their child&rsquo;s information;
+						</li>
+						<li>ask us to close the child&rsquo;s account.</li>
+					</ul>
+					<p>
+						We may need to verify your identity and your
+						relationship to the child before acting on a request, to
+						protect the child&rsquo;s privacy.
+					</p>
+					<p>
+						<strong>Age verification.</strong> We ask for date of
+						birth or age range at sign-up. We may use additional
+						checks (such as a parent&rsquo;s email confirmation or
+						school roster match) where needed. Providing a false age
+						breaches our Terms, and we may suspend the account.
+					</p>
+					<p>
+						<strong>Student defaults.</strong> For users under 18,
+						we apply stricter default settings: profiles are not
+						publicly searchable, direct messages from unknown adults
+						are blocked, location sharing is off, and no advertising
+						is shown.
+					</p>
+					<p>
+						<strong>Use through a school.</strong> If your school
+						gives you access to the Service:
+					</p>
+					<ul>
+						<li>
+							The school may create and manage your account, see
+							your name, class, and account activity, and, if it
+							has enabled this, access group chats it administers.
+						</li>
+						<li>
+							The school decides what information it gives us and
+							why. In those cases the school is responsible for
+							having the right to share it, and we process the
+							information on the school&rsquo;s instructions under
+							a written agreement.
+						</li>
+						<li>
+							We handle education records only as allowed by that
+							agreement and by laws such as FERPA (United States)
+							or equivalent rules where you live. We do not use
+							student data from schools for any purpose other than
+							providing the Service.
+						</li>
+						<li>
+							Questions about what your school can see or do
+							should go to the school first.
+						</li>
+					</ul>
+					<p>
+						<strong>Teachers and adults.</strong> Adults in the
+						Service (teachers, moderators) may be subject to extra
+						rules, including background checks required by the
+						school. Adult-to-minor private messaging may be
+						restricted or monitored as described in
+						<a href="#s5">Section 5</a>.
+					</p>
+				</section>
+
+				<!-- 5 -->
+				<section id="s5" aria-labelledby="h5s">
+					<h2 id="h5s">5. Messages, moderation, and safety</h2>
+					<p>
+						<strong>Who can see your messages.</strong> Messages are
+						visible to the people in that conversation or group, and
+						to the group&rsquo;s administrators where the group
+						settings allow it. Once someone receives a message,
+						photo, or file, they can copy, screenshot, or forward
+						it. We cannot control what other users do with content
+						you send them.
+					</p>
+					<p>
+						<strong>Our access to message content.</strong>
+						<span class="ph" data-prompt-for="encryption"
+							>[Set &ldquo;encryption&rdquo; at the top of this
+							file to choose one.]</span
+						>
+					</p>
+					<div class="choice" data-if="encryption" data-val="e2ee">
+						<p>
+							<em class="opt-label"
+								>[If messages are end-to-end encrypted:]</em
+							>
+							Messages are encrypted so that only you and the
+							recipients can read them. We cannot read message
+							content, but we can see limited information such as
+							account details, timestamps, and reports that users
+							send us.
+						</p>
+					</div>
+					<div
+						class="choice"
+						data-if="encryption"
+						data-val="standard"
+					>
+						<p>
+							<em class="opt-label"
+								>[If messages are encrypted in transit and at
+								rest only:]</em
+							>
+							We do not routinely read private messages. We may
+							access message content only when needed to
+							investigate a report, prevent serious harm, comply
+							with law, or maintain the Service.
+						</p>
+					</div>
+					<p>
+						<strong>Reporting and moderation.</strong> Any user can
+						report a message, user, or group. When you report
+						content, we may review the reported content and the
+						messages around it, plus related account information.
+						Trained staff or automated tools review reports. We may
+						remove content, warn users, restrict features, suspend
+						accounts, or notify schools, parents, or authorities as
+						described below.
+					</p>
+					<p>
+						<strong>Serious safety risks.</strong> We may share
+						information, including message content, with a parent or
+						guardian, a school safeguarding lead, emergency
+						services, or law enforcement if we reasonably believe it
+						is necessary to:
+					</p>
+					<ul>
+						<li>
+							prevent or respond to a risk of death or serious
+							harm, including self-harm;
+						</li>
+						<li>
+							protect a child from abuse, grooming, exploitation,
+							or trafficking;
+						</li>
+						<li>
+							respond to threats of violence against a person or
+							school;
+						</li>
+						<li>
+							report child sexual abuse material to the
+							appropriate authority, as required by law.
+						</li>
+					</ul>
+					<p>
+						<strong>Bullying and harassment.</strong> Bullying,
+						harassment, and hateful content are not allowed.
+						Reported content may be kept longer than ordinary
+						messages (see <a href="#s8">Section 8</a>) so we can
+						investigate and, if needed, support a school or
+						authority.
+					</p>
+					<p>
+						<strong>Schools and group admins.</strong> Teachers or
+						admins who run a class group may see the group&rsquo;s
+						messages, member lists, and files shared in that group.
+						We tell you in the group info if a group is monitored by
+						a school.
+					</p>
+					<p>
+						<strong>Deleting messages.</strong> You can delete your
+						own messages. &ldquo;Delete for everyone&rdquo; removes
+						a message from other participants&rsquo; view in the App
+						where possible, but copies already saved or
+						screenshotted by others, or held in backups for the
+						period in <a href="#s8">Section 8</a>, may remain.
+					</p>
+					<p>
+						<strong>Content you post publicly.</strong> If the
+						Service offers public or large-group spaces, anything
+						you post there may be seen, copied, and shared by many
+						people, including people outside your school. Think
+						before you post.
+					</p>
+				</section>
+
+				<!-- 6 -->
+				<section id="s6" aria-labelledby="h6s">
+					<h2 id="h6s">6. Who we share information with</h2>
+					<p>
+						We do not sell personal information, and we share it
+						only in the situations below.
+					</p>
+					<div class="table-wrap">
+						<table>
+							<thead>
+								<tr>
+									<th>Recipient</th>
+									<th>What and why</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Other users</td>
+									<td>
+										Your name, photo, and messages are
+										visible to people you chat with, within
+										your privacy settings
+									</td>
+								</tr>
+								<tr>
+									<td>Your school</td>
+									<td>
+										Account and activity information as set
+										out in our agreement with the school (<a
+											href="#s4"
+											>Section 4</a
+										>)
+									</td>
+								</tr>
+								<tr>
+									<td>Parents or guardians</td>
+									<td>
+										Information about a child&rsquo;s
+										account, where law or consent allows
+									</td>
+								</tr>
+								<tr>
+									<td>Service providers (processors)</td>
+									<td>
+										Cloud hosting, message delivery, push
+										notifications, analytics, crash
+										reporting, email and SMS, customer
+										support tools, and moderation tools.
+										They may use data only to serve us,
+										under contracts that require
+										confidentiality and security
+									</td>
+								</tr>
+								<tr>
+									<td>Authorities and courts</td>
+									<td>
+										When required by law, a valid court
+										order, or a legal request, or to protect
+										safety (<a href="#s5">Section 5</a>). We
+										review requests and share the minimum
+										needed. Where lawful, we notify the
+										affected user
+									</td>
+								</tr>
+								<tr>
+									<td>Professional advisers</td>
+									<td>
+										Lawyers, auditors, and insurers, under
+										confidentiality duties
+									</td>
+								</tr>
+								<tr>
+									<td>Business transfers</td>
+									<td>
+										If we merge, are acquired, or sell
+										assets, your information may transfer to
+										the new owner, who must honour this
+										policy. We will notify you and give you
+										choices before your information is
+										covered by a different policy
+									</td>
+								</tr>
+								<tr>
+									<td>With your consent</td>
+									<td>
+										Any other sharing you specifically
+										approve
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p>
+						<strong>Aggregated and de-identified data.</strong> We
+						may share statistics that cannot reasonably identify you
+						(for example, how many students use a feature). We will
+						not try to re-identify this data.
+					</p>
+					<p>
+						<strong>Third-party services you connect.</strong> If
+						you sign in with, or link, a third-party service, that
+						service&rsquo;s own privacy policy applies to the
+						information it holds. We recommend reading it.
+					</p>
+					<p>
+						<strong>Our list of service providers.</strong> We keep
+						an up-to-date list of the categories and names of
+						providers that handle student data at
+						<span class="ph" data-var="providersUrl">[link]</span>,
+						and we will give schools a copy on request.
+					</p>
+				</section>
+
+				<!-- 7 -->
+				<section id="s7" aria-labelledby="h7s">
+					<h2 id="h7s">7. Data security and what can go wrong</h2>
+					<p>
+						<strong>How we protect your information.</strong> We use
+						technical and organisational measures suited to the
+						sensitivity of student data, including:
+					</p>
+					<ul>
+						<li>
+							encryption of data in transit (TLS) and at rest;
+						</li>
+						<li>
+							hashed and salted password storage, and optional
+							two-factor sign-in;
+						</li>
+						<li>
+							access controls, so staff see only what their role
+							requires, with access logged and reviewed;
+						</li>
+						<li>
+							regular security testing, patching, and vendor
+							reviews;
+						</li>
+						<li>
+							staff confidentiality agreements and privacy and
+							safeguarding training;
+						</li>
+						<li>backups and an incident response plan.</li>
+					</ul>
+					<p>
+						<strong>No system is perfectly secure.</strong> Despite
+						our efforts, no service can promise absolute security.
+						Risks include hacking, malware, software bugs, outages,
+						human error, insider misuse, and failures at our
+						providers. If you believe your account or information
+						has been compromised, contact us right away at
+						<a
+							href="mailto:security@yourapp.com"
+							data-mailto="securityEmail"
+							><span class="ph" data-var="securityEmail"
+								>[security@yourapp.com]</span
+							></a
+						>.
+					</p>
+					<p>
+						<strong>If a data breach happens.</strong> If a breach
+						is likely to put your information at risk, we will:
+					</p>
+					<ol>
+						<li>
+							contain the incident and investigate its cause and
+							scope;
+						</li>
+						<li>
+							notify affected users, parents or guardians, and
+							schools without undue delay, and within the time
+							limits that apply (for example 72 hours to a
+							regulator under the GDPR where required);
+						</li>
+						<li>
+							tell you what happened, what information was
+							involved, what we are doing, and what you can do
+							(such as changing your password);
+						</li>
+						<li>
+							notify regulators and authorities where the law
+							requires.
+						</li>
+					</ol>
+					<p>
+						<strong>Your part.</strong> You can help protect your
+						account by using a strong, unique password, not sharing
+						it, signing out on shared devices, keeping your device
+						and App updated, and being careful with links and
+						requests from strangers. We are not responsible for
+						losses caused by you sharing your login with others or
+						by unsafe use of your own device.
+					</p>
+					<p>
+						<strong>Account takeover and impersonation.</strong> If
+						someone pretends to be you or gains access to your
+						account, report it to us. We will help you recover
+						access, remove impersonating content, and review the
+						incident.
+					</p>
+					<p>
+						<strong>Service interruptions and data loss.</strong>
+						Outages, bugs, or failures can occasionally cause
+						delays, missing messages, or data loss. We keep backups,
+						but we cannot guarantee that every message or file can
+						be recovered. Do not rely on the App as your only copy
+						of important schoolwork.
+					</p>
+				</section>
+
+				<!-- 8 -->
+				<section id="s8" aria-labelledby="h8s">
+					<h2 id="h8s">
+						8. How long we keep information and how to delete it
+					</h2>
+					<p>
+						We keep personal information only as long as needed for
+						the purposes in this policy, or as the law requires. The
+						periods below are our defaults.
+						<span class="ph">[Adjust to your real practice.]</span>
+					</p>
+					<div class="table-wrap">
+						<table>
+							<thead>
+								<tr>
+									<th>Information</th>
+									<th>Retention</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Account and profile</td>
+									<td>
+										Until you delete your account, then
+										deleted within
+										<span
+											class="ph"
+											data-var="accountDeleteDays"
+											>[30]</span
+										>
+										days
+									</td>
+								</tr>
+								<tr>
+									<td>Messages and files</td>
+									<td>
+										Until you or the group deletes them, or
+										your account is deleted; removed from
+										active systems within
+										<span
+											class="ph"
+											data-var="messageDeleteDays"
+											>[30]</span
+										>
+										days
+									</td>
+								</tr>
+								<tr>
+									<td>Backups</td>
+									<td>
+										Overwritten within
+										<span class="ph" data-var="backupDays"
+											>[90]</span
+										>
+										days of deletion
+									</td>
+								</tr>
+								<tr>
+									<td>Reported content and safety records</td>
+									<td>
+										Up to
+										<span
+											class="ph"
+											data-var="reportsMonths"
+											>[12]</span
+										>
+										months, or longer if needed for an
+										investigation, legal claim, or
+										safeguarding duty
+									</td>
+								</tr>
+								<tr>
+									<td>Logs and security data</td>
+									<td>
+										Up to
+										<span class="ph" data-var="logsMonths"
+											>[12]</span
+										>
+										months
+									</td>
+								</tr>
+								<tr>
+									<td>Inactive accounts</td>
+									<td>
+										After
+										<span
+											class="ph"
+											data-var="inactiveMonths"
+											>[24]</span
+										>
+										months of inactivity we will warn you,
+										then delete the account
+									</td>
+								</tr>
+								<tr>
+									<td>Legal and tax records</td>
+									<td>
+										As required by law (often 5 to 7 years)
+									</td>
+								</tr>
+								<tr>
+									<td>Student data held for a school</td>
+									<td>
+										Per the school agreement; returned or
+										deleted when the agreement ends
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p>
+						<strong>Deleting your account.</strong> Go to
+						<span class="ph" data-var="deleteAccountPath"
+							>[Settings &gt; Account &gt; Delete account]</span
+						>. We will ask you to confirm, then delete or
+						de-identify your information, except what we must keep
+						by law or for safety (above). Messages you sent to other
+						people may remain visible to them in their own chats
+						unless a feature to remove them is available.
+					</p>
+					<p>
+						<strong>When a student leaves a school.</strong> The
+						school may close or transfer the account. You can ask us
+						to keep your personal account, move it to a personal
+						email, or delete it.
+					</p>
+					<p>
+						<strong>Legal holds.</strong> If we receive a legal
+						request or are involved in a dispute, we may need to
+						keep certain information longer than the periods above.
+					</p>
+					<p>
+						<strong>De-identified data.</strong> Once information is
+						truly de-identified or aggregated, it is no longer
+						personal information and may be kept without time limit.
+					</p>
+				</section>
+
+				<!-- 9 -->
+				<section id="s9" aria-labelledby="h9s">
+					<h2 id="h9s">9. Your rights and choices</h2>
+					<p>
+						Depending on where you live, you may have some or all of
+						the rights below. We offer them to every user wherever
+						we reasonably can.
+					</p>
+					<ul>
+						<li>
+							<strong>Access:</strong> get a copy of the personal
+							information we hold about you.
+						</li>
+						<li>
+							<strong>Correction:</strong> have inaccurate or
+							incomplete information fixed.
+						</li>
+						<li>
+							<strong>Deletion:</strong> ask us to delete your
+							information (see <a href="#s8">Section 8</a> for
+							limits).
+						</li>
+						<li>
+							<strong>Portability:</strong> receive your
+							information in a common, machine-readable format.
+						</li>
+						<li>
+							<strong>Restriction and objection:</strong> ask us
+							to limit or stop certain uses, including uses based
+							on our legitimate interests.
+						</li>
+						<li>
+							<strong>Withdraw consent:</strong> where we rely on
+							consent, you can withdraw it at any time. This does
+							not affect what we did before.
+						</li>
+						<li>
+							<strong>Human review:</strong> ask for a person to
+							review an automated moderation decision.
+						</li>
+						<li>
+							<strong>No discrimination:</strong> we will not
+							treat you worse for using these rights.
+						</li>
+					</ul>
+
+					<h3>How to use your rights</h3>
+					<p>
+						Use
+						<span class="ph" data-var="privacySettingsPath"
+							>[Settings &gt; Privacy]</span
+						>
+						in the App, or email
+						<a
+							href="mailto:privacy@yourapp.com"
+							data-mailto="privacyEmail"
+							><span class="ph" data-var="privacyEmail"
+								>[privacy@yourapp.com]</span
+							></a
+						>. We may ask you to verify your identity, and for a
+						child, to confirm a parent or guardian. We will reply
+						within one month, or sooner if the law requires. If a
+						request is complex we may extend this by the time the
+						law allows, and we will tell you why. We can refuse
+						requests that are unfounded or that conflict with a
+						legal duty or someone else&rsquo;s rights, and we will
+						explain our reasons.
+					</p>
+
+					<h3>Your choices in the App</h3>
+					<ul>
+						<li>
+							Control who can find you, message you, and see your
+							profile in privacy settings.
+						</li>
+						<li>
+							Turn off notifications, location features, and
+							optional emails.
+						</li>
+						<li>Block or report any user.</li>
+						<li>
+							Download or delete your data from account settings.
+						</li>
+					</ul>
+
+					<h3>Regional information</h3>
+					<p>
+						<strong
+							>European Economic Area, United Kingdom, and
+							Switzerland.</strong
+						>
+						You have the rights above under the GDPR or UK GDPR. Our
+						controller is
+						<span class="ph" data-var="companyName"
+							>[Company Name]</span
+						>.
+						<span class="ph" data-var="dpoDetails"
+							>[Add EU/UK representative and Data Protection
+							Officer details if required.]</span
+						>
+						You may complain to your local data protection
+						authority.
+					</p>
+					<p>
+						<strong>United States.</strong> We follow COPPA for
+						children under 13 and FERPA where we act for a school.
+						<em>California:</em> you may request to know, correct,
+						and delete your information, and to opt out of sale or
+						sharing. We do not sell or share personal information
+						for cross-context advertising, and we do not do so for
+						users under 16. We do not use or disclose sensitive
+						personal information beyond what is needed to provide
+						the Service. Other states may give similar rights.
+					</p>
+					<p>
+						<strong>Vietnam.</strong> Under Vietnam&rsquo;s personal
+						data protection rules, you may know about, consent to or
+						withdraw consent from, access, correct, delete,
+						restrict, and object to the processing of your data, and
+						complain or seek compensation. Processing
+						children&rsquo;s data requires parental or guardian
+						consent, and the child&rsquo;s own consent from age 7.
+						<span class="ph"
+							>[Confirm the current requirements with a Vietnamese
+							lawyer, including any impact assessment or
+							notification duties.]</span
+						>
+					</p>
+					<p>
+						<strong>Other countries.</strong> If your country gives
+						you additional rights, we will honour them. Contact us
+						to use them.
+					</p>
+
+					<h3>Complaints</h3>
+					<p>
+						Please contact us first so we can try to fix the
+						problem. You also have the right to complain to your
+						local privacy regulator or data protection authority.
+					</p>
+				</section>
+
+				<!-- 10 -->
+				<section id="s10" aria-labelledby="h10s">
+					<h2 id="h10s">
+						10. International transfers, cookies, links, changes,
+						and contact
+					</h2>
+
+					<h3>International transfers</h3>
+					<p>
+						We and our providers may process and store your
+						information in countries other than your own, including
+						<span class="ph" data-var="transferCountries"
+							>[list countries]</span
+						>. These countries may have different data protection
+						laws. When we transfer personal information across
+						borders, we use safeguards the law accepts, such as
+						standard contractual clauses, adequacy decisions, or
+						other approved mechanisms, and we require providers to
+						protect the data to the same standard.
+					</p>
+
+					<h3>Cookies and similar technologies</h3>
+					<p>On our website we use:</p>
+					<ul>
+						<li>
+							<strong>Essential cookies</strong> to sign you in
+							and keep the site secure. These cannot be turned
+							off.
+						</li>
+						<li>
+							<strong>Preference cookies</strong> to remember
+							settings such as language or theme.
+						</li>
+						<li>
+							<strong>Analytics cookies</strong> to understand how
+							the site is used, only if you agree where the law
+							requires it.
+						</li>
+					</ul>
+					<p>
+						We do not use advertising cookies on pages used by
+						students. You can manage cookies in your browser and in
+						our cookie settings. Some browsers send a &ldquo;Do Not
+						Track&rdquo; or Global Privacy Control signal. We honour
+						Global Privacy Control where the law requires.
+					</p>
+
+					<h3>Advertising</h3>
+					<p class="ph" data-prompt-for="ads">
+						[Set &ldquo;ads&rdquo; at the top of this file to choose
+						one of the two options below.]
+					</p>
+					<p data-if="ads" data-val="none">
+						The Service contains no advertising.
+					</p>
+					<p data-if="ads" data-val="limited">
+						The Service may show advertising. Ads are never targeted
+						at users under 18 and never use the content of messages.
+					</p>
+
+					<h3>Third-party links and content</h3>
+					<p>
+						Chats may contain links to other websites, apps, or
+						files. We do not control them and are not responsible
+						for their privacy practices. Be careful about clicking
+						links from people you do not know.
+					</p>
+
+					<h3>Changes to this policy</h3>
+					<p>
+						We may update this policy as our Service or the law
+						changes. For significant changes we will tell you in the
+						App or by email at least
+						<span class="ph" data-var="noticeDays">[30]</span> days
+						before they apply, and, where required, ask parents,
+						guardians, or schools for fresh consent. The &ldquo;Last
+						updated&rdquo; date at the top shows the latest version.
+						Older versions are available on request.
+					</p>
+
+					<h3>Contact us</h3>
+					<p>
+						<span class="ph" data-var="companyName"
+							>[Company Legal Name]</span
+						><br />
+						<span class="ph" data-var="companyAddress"
+							>[Registered Address]</span
+						><br />
+						Privacy questions and requests:
+						<a
+							href="mailto:privacy@yourapp.com"
+							data-mailto="privacyEmail"
+							><span class="ph" data-var="privacyEmail"
+								>[privacy@yourapp.com]</span
+							></a
+						><br />
+						Security issues:
+						<a
+							href="mailto:security@yourapp.com"
+							data-mailto="securityEmail"
+							><span class="ph" data-var="securityEmail"
+								>[security@yourapp.com]</span
+							></a
+						><br />
+						<span class="ph" data-var="dpoDetails"
+							>[Data Protection Officer / EU or UK representative,
+							if applicable]</span
+						>
+					</p>
+				</section>
+
+				<footer>
+					<p>
+						&copy; <span class="ph" data-var="year">[Year]</span>
+						<span class="ph" data-var="companyName"
+							>[Company Legal Name]</span
+						>. All rights reserved.
+					</p>
+				</footer>
+			</main>
+		</div>
+
+		<script>
+			// Fill the page from window.POLICY_CONFIG (see the top of this file).
+			(function () {
+				var C = window.POLICY_CONFIG || {};
+				var LABELS = {
+					appName: "App name",
+					companyName: "Company name",
+					companyAddress: "Company address",
+					country: "Country",
+					privacyEmail: "Privacy email",
+					securityEmail: "Security email",
+					dpoDetails: "EU/UK representative or DPO",
+					effectiveDate: "Effective date",
+					lastUpdated: "Last updated date",
+					year: "Copyright year",
+					minAge: "Minimum age",
+					localConsentAge: "Local age of digital consent",
+					accountDeleteDays: "Account deletion days",
+					messageDeleteDays: "Message deletion days",
+					backupDays: "Backup days",
+					reportsMonths: "Reported-content retention",
+					logsMonths: "Log retention",
+					inactiveMonths: "Inactive account months",
+					noticeDays: "Change notice days",
+					deleteAccountPath: "Delete-account path",
+					privacySettingsPath: "Privacy settings path",
+					providersUrl: "Service providers link",
+					transferCountries: "Transfer countries",
+					encryption: "Encryption choice",
+					ads: "Advertising choice",
+				};
+				var missing = [];
+				function val(k) {
+					return (C[k] == null ? "" : String(C[k])).replace(
+						/^\s+|\s+$/g,
+						"",
+					);
+				}
+				function note(k) {
+					if (missing.indexOf(k) < 0) missing.push(k);
+				}
+
+				Array.prototype.forEach.call(
+					document.querySelectorAll("[data-var]"),
+					function (el) {
+						var k = el.getAttribute("data-var"),
+							v = val(k);
+						if (v) {
+							el.textContent = v;
+							el.classList.remove("ph");
+						} else {
+							note(k);
+						}
+					},
+				);
+				Array.prototype.forEach.call(
+					document.querySelectorAll("[data-mailto]"),
+					function (a) {
+						var v = val(a.getAttribute("data-mailto"));
+						if (v) a.setAttribute("href", "mailto:" + v);
+					},
+				);
+
+				["encryption", "ads"].forEach(function (key) {
+					var v = val(key);
+					var opts = document.querySelectorAll(
+						'[data-if="' + key + '"]',
+					);
+					var prompts = document.querySelectorAll(
+						'[data-prompt-for="' + key + '"]',
+					);
+					if (!v) {
+						note(key);
+						return;
+					}
+					Array.prototype.forEach.call(opts, function (el) {
+						if (el.getAttribute("data-val") === v) {
+							el.classList.remove("choice");
+							Array.prototype.forEach.call(
+								el.querySelectorAll(".opt-label"),
+								function (l) {
+									l.parentNode.removeChild(l);
+								},
+							);
+						} else {
+							el.parentNode.removeChild(el);
+						}
+					});
+					Array.prototype.forEach.call(prompts, function (p) {
+						p.parentNode.removeChild(p);
+					});
+				});
+
+				var name = val("appName");
+				if (name) {
+					document.title = "Privacy Policy \u2013 " + name;
+					var md = document.querySelector('meta[name="description"]');
+					if (md)
+						md.setAttribute(
+							"content",
+							"How " +
+								name +
+								" collects, uses, shares, and protects personal information of students and other users.",
+						);
+				}
+
+				var banner = document.getElementById("todoBanner");
+				if (banner && C.showMissingBanner !== false && missing.length) {
+					var names = missing.map(function (k) {
+						return LABELS[k] || k;
+					});
+					banner.innerHTML =
+						"<strong>" +
+						missing.length +
+						" setting" +
+						(missing.length > 1 ? "s" : "") +
+						" still to fill in</strong>";
+					banner.appendChild(
+						document.createTextNode(
+							names.join(", ") +
+								". Edit window.POLICY_CONFIG at the top of this file. This notice disappears when everything is filled in.",
+						),
+					);
+					banner.hidden = false;
+				}
+			})();
+
+			// Highlight the current section in the contents list.
+			(function () {
+				var links = Array.prototype.slice.call(
+					document.querySelectorAll("nav.toc a"),
+				);
+				var map = {};
+				links.forEach(function (a) {
+					map[a.getAttribute("href").slice(1)] = a;
+				});
+				var sections = links.map(function (a) {
+					return document.getElementById(
+						a.getAttribute("href").slice(1),
+					);
+				});
+
+				if ("IntersectionObserver" in window) {
+					var io = new IntersectionObserver(
+						function (entries) {
+							entries.forEach(function (e) {
+								if (e.isIntersecting) {
+									links.forEach(function (a) {
+										a.removeAttribute("aria-current");
+									});
+									map[e.target.id].setAttribute(
+										"aria-current",
+										"true",
+									);
+								}
+							});
+						},
+						{ rootMargin: "0px 0px -70% 0px", threshold: 0 },
+					);
+					sections.forEach(function (s) {
+						if (s) io.observe(s);
+					});
+				}
+
+				// Collapse the contents on small screens.
+				var d = document.getElementById("tocDetails");
+				if (window.matchMedia("(max-width: 62rem)").matches) {
+					d.removeAttribute("open");
+				}
+			})();
+		</script>
+	</body>
+</html>
